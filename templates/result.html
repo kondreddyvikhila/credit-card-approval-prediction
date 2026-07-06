@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Result{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-body p-5 text-center">
+
+                    <h2 class="text-primary mb-4">
+                        Prediction Result
+                    </h2>
+
+                    {% if error %}
+
+                    <div class="alert alert-warning">
+
+                        <h4>⚠ Prediction Error</h4>
+
+                        <p>{{ error }}</p>
+
+                    </div>
+
+                    {% else %}
+
+                        {% if prediction == "Approved" %}
+
+                        <div class="alert alert-success">
+
+                            <h3>✅ Credit Card Approved</h3>
+
+                            <p>
+                                The applicant is likely to receive credit card approval.
+                            </p>
+
+                        </div>
+
+                        {% elif prediction == "Rejected" %}
+
+                        <div class="alert alert-danger">
+
+                            <h3>❌ Credit Card Rejected</h3>
+
+                            <p>
+                                The applicant is unlikely to receive credit card approval.
+                            </p>
+
+                        </div>
+
+                        {% else %}
+
+                        <div class="alert alert-secondary">
+
+                            <h3>Prediction Unavailable</h3>
+
+                            <p>
+                                Unable to determine the prediction.
+                            </p>
+
+                        </div>
+
+                        {% endif %}
+
+                        <hr>
+
+                        <h4>Confidence Score</h4>
+
+                        <div class="progress" style="height:30px;">
+
+                            <div
+                                class="progress-bar
+                                {% if prediction == 'Approved' %}
+                                    bg-success
+                                {% elif prediction == 'Rejected' %}
+                                    bg-danger
+                                {% else %}
+                                    bg-secondary
+                                {% endif %}"
+                                role="progressbar"
+                                style="width: {{ probability|default(0) }}%;">
+
+                                {{ probability|default(0) }}%
+
+                            </div>
+
+                        </div>
+
+                        <p class="mt-3">
+
+                            <strong>Model Confidence:</strong>
+                            {{ probability|default(0) }}%
+
+                        </p>
+
+                    {% endif %}
+
+                    <div class="mt-4">
+
+                        <a href="/predict" class="btn btn-primary">
+                            Predict Again
+                        </a>
+
+                        <a href="/" class="btn btn-secondary">
+                            Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

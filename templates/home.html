@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="row align-items-center">
+
+    <div class="col-lg-6">
+
+        <h1 class="display-4 fw-bold text-primary">
+            Credit Card Approval Prediction
+        </h1>
+
+        <p class="lead mt-4">
+            Predict whether a customer is eligible for credit card approval
+            using a Machine Learning model trained on demographic and financial
+            information.
+        </p>
+
+        <a href="/predict" class="btn btn-primary btn-lg mt-3">
+            Start Prediction
+        </a>
+
+    </div>
+
+    <div class="col-lg-6 text-center">
+
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/891/891462.png"
+            width="350"
+            class="img-fluid">
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h3>🤖 ML Model</h3>
+
+                <p>
+                    Random Forest model trained using customer demographic,
+                    financial and employment information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h3>⚡ Instant Prediction</h3>
+
+                <p>
+                    Get prediction results immediately with confidence score.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h3>📊 Data Driven</h3>
+
+                <p>
+                    Built using real-world credit card application data.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
